@@ -1,35 +1,23 @@
-import Directory from './components/directory/directory';
+import { Route, Routes } from 'react-router-dom';
+
+import Navigation from './routes/navigation/navigation';
+import Home from './routes/home/home';
+import SignIn from './routes/sign-in/sign-in';
+
+const Shop = () => {
+  return <h1>Hello I am your mom</h1>;
+};
 
 const App = () => {
-  const categories = [
-    {
-      id: 1,
-      title: 'Hats',
-      imageUrl: 'https://ih1.redbubble.net/image.2551829548.5665/ssrco,baseball_cap,product,000000:44f0b734a5,front_three_quarter,square,1000x1000-bg,f8f8f8.jpg',
-    },
-    {
-      id: 2,
-      title: 'Jackets',
-      imageUrl: 'https://ih1.redbubble.net/image.2551829548.5665/ssrco,baseball_cap,product,000000:44f0b734a5,front_three_quarter,square,1000x1000-bg,f8f8f8.jpg',
-    },
-    {
-      id: 3,
-      title: 'Sneakers',
-      imageUrl: 'https://ih1.redbubble.net/image.2551829548.5665/ssrco,baseball_cap,product,000000:44f0b734a5,front_three_quarter,square,1000x1000-bg,f8f8f8.jpg',
-    },
-    {
-      id: 4,
-      title: 'Womans',
-      imageUrl: 'https://ih1.redbubble.net/image.2551829548.5665/ssrco,baseball_cap,product,000000:44f0b734a5,front_three_quarter,square,1000x1000-bg,f8f8f8.jpg',
-    },
-    {
-      id: 5,
-      title: 'Mens',
-      imageUrl: 'https://ih1.redbubble.net/image.2551829548.5665/ssrco,baseball_cap,product,000000:44f0b734a5,front_three_quarter,square,1000x1000-bg,f8f8f8.jpg',
-    },
-  ];
-
-  return <Directory categories={categories} />;
+  return (
+    <Routes>
+      <Route path='/' element={<Navigation />}>
+        <Route index element={<Home />} />
+        <Route path='shop' element={<Shop />} />
+        <Route path="sign-in" element={<SignIn/>}/>
+      </Route>
+    </Routes>
+  );
 };
 
 export default App;
